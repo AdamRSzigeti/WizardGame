@@ -1,21 +1,11 @@
-#include <SFML/Graphics.hpp>
+#include <iostream>  
+#include "game.hpp"  
+#include "DEFINITIONS.hpp"  
 
-int main()
-{
-    auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
-    window.setFramerateLimit(144);
+int main()  
+{  
+    // Fix: Assign the result of Sziad::game to a named variable to avoid the error.  
+    auto gameInstance = Sziad::game(SCREEN_HEIGHT, SCREEN_HEIGHT, "Wizard Game");  
 
-    while (window.isOpen())
-    {
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window.close();
-            }
-        }
-
-        window.clear();
-        window.display();
-    }
+    return EXIT_SUCCESS;  
 }
